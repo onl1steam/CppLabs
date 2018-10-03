@@ -1,27 +1,4 @@
-#include <iostream>
-#include <sstream>
-using namespace std;
-
-class Vector {
-public:
-    Vector();
-    Vector(const int init_size);
-    Vector(const Vector& copy);
-    Vector& operator=(const Vector& vector);
-    ~Vector();
-
-    double& operator[](const int i);
-    const double& operator[](const int i) const;
-
-    std::ostream& writeTo(std::ostream& ostrm);
-
-private:
-    int size_{ 0 };
-    double* data_{ nullptr };
-};
-
-std::ostream& operator<<(std::ostream& ostrm, Vector& obj);
-
+#include "vector.h"
 
 Vector::Vector() {
     data_ = new double[0];
@@ -85,39 +62,4 @@ std::ostream& Vector::writeTo(std::ostream& ostrm){
 std::ostream &operator<<(std::ostream &ostrm, Vector& obj){
     obj.writeTo(ostrm);
     return ostrm;
-}
 
-void runTests(){
-    // Создание вектора на 10 элементов и проинициализируем его элементы индексами
-    Vector vector(10);
-
-    for(int i(0); i < 10; ++i){
-        vector[i] = i;
-    }
-    cout << vector << endl;
-    double a = vector[7];
-    cout << a << endl;
-
-    // Попробуем обратиться к 12 элементу вектора
-    try{
-        vector[12];
-    }catch (out_of_range)
-    {
-        cout << "Выход за границы вектора" << endl;
-    }
-
-    // Создадим новый вектор и присвоим ему старый
-
-    Vector newVector;
-    newVector = vector;
-    cout << newVector << endl;
-
-
-}
-
-int main() {
-
-    runTests();
-
-    return 0;
-}
