@@ -48,7 +48,7 @@ void Rational::setDenominator(int denominator)
 
 bool Rational::operator==(const Rational& rhs) const
 {
-	return (num == rhs.num) && (den == rhs.den);
+	return (num * rhs.den - rhs.num * den) == 0;
 }
 
 bool Rational::operator!=(const Rational& rhs) const
