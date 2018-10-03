@@ -62,4 +62,4 @@ std::ostream& Vector::writeTo(std::ostream& ostrm){
 std::ostream &operator<<(std::ostream &ostrm, Vector& obj){
     obj.writeTo(ostrm);
     return ostrm;
-
+}
