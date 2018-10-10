@@ -35,4 +35,10 @@ void runTests(){
     Vector newVector;
     newVector = vector;
     cout << newVector << endl;
+    
+    // Изменим размер вектора до 5 и выведем его длину
+    
+    newVector.resize(5);
+    cout << newVector << endl;
+    cout << newVector.size() << endl;
 }

@@ -46,6 +46,24 @@ const double &Vector::operator[](const int i) const {
 }
 
 
+int Vector::size() const
+{
+    return size_;
+}
+
+void Vector::resize(const int size)
+{
+    if (size > size_) {
+        Vector tmp{*this};
+        delete[] data_;
+        data_ = new double[size];
+        *this = tmp;
+        this->size_ = size;
+    }
+    size_ = size;
+}
+
+
 Vector::~Vector() {
     delete[] data_;
 }
@@ -62,4 +80,3 @@ std::ostream& Vector::writeTo(std::ostream& ostrm){
 std::ostream &operator<<(std::ostream &ostrm, Vector& obj){
     obj.writeTo(ostrm);
     return ostrm;
-}
