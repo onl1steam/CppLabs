@@ -46,13 +46,11 @@ const double &Vector::operator[](const int i) const {
 }
 
 
-int Vector::size() const
-{
+int Vector::size() const {
     return size_;
 }
 
-void Vector::resize(const int size)
-{
+void Vector::resize(const int size) {
     if (size > size_) {
         Vector tmp{*this};
         delete[] data_;
@@ -69,7 +67,7 @@ Vector::~Vector() {
 }
 
 
-std::ostream& Vector::writeTo(std::ostream& ostrm){
+std::ostream& Vector::writeTo(std::ostream& ostrm) {
     for(int i(0); i < size_; ++i){
         ostrm << (*this)[i] << ((i != size_ - 1) ? ", " : ".") ;
     }
@@ -77,6 +75,7 @@ std::ostream& Vector::writeTo(std::ostream& ostrm){
 }
 
 
-std::ostream &operator<<(std::ostream &ostrm, Vector& obj){
+std::ostream &operator<<(std::ostream &ostrm, Vector& obj) {
     obj.writeTo(ostrm);
     return ostrm;
+}
