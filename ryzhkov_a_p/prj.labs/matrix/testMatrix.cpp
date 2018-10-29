@@ -1,5 +1,5 @@
 #include <iostream>
-#include "matrix.hpp"
+#include "matrix.h"
 using namespace std;
 
 int main() {
@@ -26,17 +26,29 @@ int main() {
         }
     }
     cout << test1 << endl;
-    // Присвоим первой матрице вторую и выведем ее
     
-    test = test1;
-    cout << test << endl;
+    // Выведем размер матрицы test1
+    
+    test1.size();
+    
+    // Присвоим второй матрице первую и выведем ее
+    
+    test1 = test1;
+    cout << endl;
+    cout << test1 << endl;
     
     // Попробуем обратиться к элементу за границами матрицы
     
     try {
-        test.at(5,5);
+        test1.at(5,5);
     } catch(out_of_range) {
-        cout << "Out of range in Matrix";
+        cout << "Out of range in Matrix" << endl;
+    }
+    
+    try {
+        test1.at(-1,0);
+    } catch(out_of_range) {
+        cout << "Out of range in Matrix" << endl;
     }
     
 }

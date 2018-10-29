@@ -1,3 +1,7 @@
+//
+// Created by Рыжков Артем on 12/10/2018.
+//
+
 #ifndef MATRIX_MATRIX_H
 #define MATRIX_MATRIX_H
 
@@ -20,6 +24,10 @@ public:
     
     double &at(const int numRow, const int numCol);
     
+    void size();
+    
+    void resize(const int rowNum, const int colNum);
+    
     const double &at(const int numRow, const int numCol) const;
     
     std::ostream &writeTo(std::ostream &ostrm) const;
@@ -33,3 +41,4 @@ private:
 std::ostream &operator<<(std::ostream &ostr, const Matrix matrix);
 
 #endif //MATRIX_MATRIX_H
+

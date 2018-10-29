@@ -1,6 +1,6 @@
 #include <stdexcept>
 #include <iostream>
-#include "matrix.hpp"
+#include "matrix.h"
 
 using namespace std;
 
@@ -22,20 +22,41 @@ double &Matrix::at(const int numRow, const int numCol) {
     return data[numRow][numCol];
 }
 
+void Matrix::resize(const int rowNum, const int colNum) {
+    if (rowNum < rowNumber_ && colNum < colNumber_) {
+        rowNumber_ = rowNum;
+        colNumber_ = colNum;
+        return;
+    } else {
+        if (colNum < colNumber_ && rowNum == rowNumber_) {
+            colNumber_ = colNum;
+            return;
+        } else {
+            if(rowNum < rowNumber_ && colNum == colNumber_) {
+                rowNumber_ = rowNum;
+                return;
+            }
+        }
+    }
+    
+}
+
 void Matrix::makeNewMatrix(const Matrix &matrix) {
     rowNumber_ = matrix.rowNumber_;
     colNumber_ = matrix.colNumber_;
     data = new double*[rowNumber_];
-    for (int i(0); i < rowNumber_; ++i) {
-        data[i] = new double[colNumber_];
-        for (int j(0); j < colNumber_; j += 1) {
-            data[i][j] = matrix.data[i][j];
+    for (int rowNum(0); rowNum < rowNumber_; ++rowNum) {
+        data[rowNum] = new double[colNumber_];
+        for (int colNum(0); colNum < colNumber_; ++colNum) {
+            data[rowNum][colNum] = matrix.data[rowNum][colNum];
         }
     }
 }
 
-Matrix& Matrix::operator=(const Matrix &matrix) {
-    makeNewMatrix(matrix);
+Matrix &Matrix::operator=(const Matrix &matrix) {
+    if (this != &matrix) {
+        makeNewMatrix(matrix);
+    }
     return *this;
 }
 
@@ -44,6 +65,10 @@ const double &Matrix::at(const int numRow, const int numCol) const {
         throw std::out_of_range("Out of range in Matrix");
     }
     return data[numRow][numCol];
+}
+
+void Matrix::size() {
+    cout << "Matrix number of rows - " << rowNumber_ << ", and columns number - " << colNumber_ << endl;
 }
 
 Matrix::Matrix(int rowNumber, int colNumber) {
@@ -56,17 +81,17 @@ Matrix::Matrix(int rowNumber, int colNumber) {
 }
 
 std::ostream& Matrix::writeTo(std::ostream &ostrm) const {
-    for (int i(0); i < rowNumber_; ++i) {
-        for (int j(0); j < colNumber_; ++j) {
-            ostrm << data[i][j] << " ";
+    for (int rowNum(0); rowNum < rowNumber_; ++rowNum) {
+        for (int colNum(0); colNum < colNumber_; ++colNum) {
+            ostrm << data[rowNum][colNum] << " ";
         }
         ostrm << endl;
     }
     return ostrm;
 }
 
-std::ostream &operator<<(std::ostream &ostr, Matrix matrix) {
-    return matrix.writeTo(ostr);
+std::ostream &operator<<(std::ostream &ostrm, Matrix matrix) {
+    return matrix.writeTo(ostrm);
 }
 
 Matrix::~Matrix() {
@@ -78,4 +103,5 @@ Matrix::~Matrix() {
     rowNumber_ = 0;
     colNumber_ = 0;
 }
+
 
