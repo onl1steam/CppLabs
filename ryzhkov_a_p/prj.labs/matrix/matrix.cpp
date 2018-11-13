@@ -1,6 +1,6 @@
 #include <stdexcept>
 #include <iostream>
-#include "matrix.h"
+#include "matrix.hpp"
 
 using namespace std;
 
@@ -20,25 +20,6 @@ double &Matrix::at(const int numRow, const int numCol) {
         throw std::out_of_range("Out of range in Matrix");
     }
     return data[numRow][numCol];
-}
-
-void Matrix::resize(const int rowNum, const int colNum) {
-    if (rowNum < rowNumber_ && colNum < colNumber_) {
-        rowNumber_ = rowNum;
-        colNumber_ = colNum;
-        return;
-    } else {
-        if (colNum < colNumber_ && rowNum == rowNumber_) {
-            colNumber_ = colNum;
-            return;
-        } else {
-            if(rowNum < rowNumber_ && colNum == colNumber_) {
-                rowNumber_ = rowNum;
-                return;
-            }
-        }
-    }
-    
 }
 
 void Matrix::makeNewMatrix(const Matrix &matrix) {

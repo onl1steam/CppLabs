@@ -2,16 +2,8 @@
 #include "vector.h"
 using namespace std;
 
-void runTests();
-
 int main() {
     
-    runTests();
-    
-    return 0;
-}
-
-void runTests(){
     // Создание вектора на 10 элементов и проинициализируем его элементы индексами
     Vector vector(10);
     
@@ -41,4 +33,7 @@ void runTests(){
     newVector.resize(5);
     cout << newVector << endl;
     cout << newVector.size() << endl;
+    
+    return 0;
 }
+

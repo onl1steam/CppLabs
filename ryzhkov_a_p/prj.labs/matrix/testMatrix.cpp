@@ -1,5 +1,5 @@
 #include <iostream>
-#include "matrix.h"
+#include "matrix.hpp"
 using namespace std;
 
 int main() {
@@ -31,10 +31,10 @@ int main() {
     
     test1.size();
     
-    // Присвоим второй матрице первую и выведем ее
+    // Присвоим первой матрице первую и выведем ее
     
     test1 = test1;
-    cout << endl;
+    cout << "matrix 1" << endl;
     cout << test1 << endl;
     
     // Попробуем обратиться к элементу за границами матрицы
@@ -50,5 +50,16 @@ int main() {
     } catch(out_of_range) {
         cout << "Out of range in Matrix" << endl;
     }
+    
+    // Двойное присваивание
+    
+    Matrix test2;
+    Matrix test3;
+    
+    test3 = test2 = test1;
+    cout << "matrix 2" << endl;
+    cout << test2 << endl;
+    cout << "matrix 3" << endl;
+    cout << test3 << endl;
     
 }
