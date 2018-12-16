@@ -1,6 +1,6 @@
 #include <iostream>
 #include <sstream>
-#include "complex.hpp"
+#include "../../prj.labs/complex/complex.hpp"
 
 using namespace std;
 

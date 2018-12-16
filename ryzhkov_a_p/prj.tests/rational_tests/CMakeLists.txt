@@ -1,0 +1,3 @@
+add_executable(rational_tests testRational.cpp)
+target_link_libraries(rational_tests rational)
+set_property(TARGET rational_tests PROPERTY CXX_STANDARD 14)

@@ -1,0 +1,3 @@
+add_executable(complex_tests testComplex.cpp)
+target_link_libraries(complex_tests complex)
+set_property(TARGET complex_tests PROPERTY CXX_STANDARD 14)

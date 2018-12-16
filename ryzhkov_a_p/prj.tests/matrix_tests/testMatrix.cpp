@@ -1,5 +1,5 @@
 #include <iostream>
-#include "matrix.hpp"
+#include "../../prj.labs/matrix/matrix.hpp"
 using namespace std;
 
 int main() {

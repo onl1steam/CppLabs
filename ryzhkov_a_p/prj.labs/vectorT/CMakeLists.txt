@@ -1,4 +1,4 @@
-add_executable(vectorT vectorT.h vectorT_tests.cpp)
+add_library(vectorT vectorT.h)
 
 
 set_property(TARGET vectorT PROPERTY CXX_STANDARD 14)
