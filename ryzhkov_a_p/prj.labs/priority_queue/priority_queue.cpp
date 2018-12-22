@@ -3,25 +3,24 @@
 //
 
 #include <algorithm>
-#include "priority_queue.h"
+#include "PriorityQueue.h"
 
 PriorityQueue::PriorityQueue(int size)
 : size_(size), end_(0) {
     data_ = new int[size_];
     priorities_ = new int[size_];
-    
     for (int i(0); i < end_; i++) {
         priorities_[i] = 0;
     }
 }
 
-PriorityQueue::PriorityQueue(const PriorityQueue &obj)
-: size_(obj.size_), end_(obj.end_) {
+PriorityQueue::PriorityQueue(const PriorityQueue &copy)
+: size_(copy.size_), end_(copy.end_) {
     data_ = new int[size_];
-    std::copy(obj.data_, obj.data_ + obj.size_, data_);
+    std::copy(copy.data_, copy.data_ + copy.size_, data_);
     
     priorities_ = new int[size_];
-    std::copy(obj.priorities_, obj.priorities_ + obj.size_, priorities_);
+    std::copy(copy.priorities_, copy.priorities_ + copy.size_, priorities_);
 }
 
 PriorityQueue::~PriorityQueue() {
@@ -38,19 +37,6 @@ bool PriorityQueue::isFull() {
 }
 
 int PriorityQueue::top() {
-    return data_[end_];
-}
-
-
-bool PriorityQueue::isEmpty() const {
-    return end_ == 0;
-}
-
-bool PriorityQueue::isFull() const {
-    return size_ == end_;
-}
-
-int PriorityQueue::top() const {
     return data_[end_];
 }
 
@@ -84,21 +70,21 @@ void PriorityQueue::push(int value, int priority) {
     }
 }
 
-PriorityQueue &PriorityQueue::operator=(const PriorityQueue &rhs) {
-    if (this != &rhs) {
-        if (size_ < rhs.size_) {
-            int *newData(new int[rhs.size_]);
+PriorityQueue &PriorityQueue::operator=(const PriorityQueue &queue) {
+    if (this != &queue) {
+        if (size_ < queue.size_) {
+            int *newData(new int[queue.size_]);
             delete[] data_;
             data_ = newData;
             
-            int *newPriorities(new int[rhs.size_]);
+            int *newPriorities(new int[queue.size_]);
             
             delete[] priorities_;
             priorities_ = newPriorities;
         }
-        std::copy(rhs.data_, rhs.data_ + rhs.size_, data_);
-        std::copy(rhs.priorities_, rhs.priorities_ + rhs.size_, priorities_);
-        size_ = rhs.size_;
+        std::copy(queue.data_, queue.data_ + queue.size_, data_);
+        std::copy(queue.priorities_, queue.priorities_ + queue.size_, priorities_);
+        size_ = queue.size_;
     }
     return *this;
 }

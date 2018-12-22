@@ -1,3 +1,7 @@
+//
+// Created by Рыжков Артем on 12/11/2018.
+//
+
 #ifndef QUEUE_QUEUE_HPP
 #define QUEUE_QUEUE_HPP
 
@@ -14,7 +18,7 @@ public:
     bool isFull();
     int top();
     int pop();
-    void enqueue(int value);
+    void push(int value);
     
     Queue& operator=(const Queue& rhs);
 private:
@@ -25,3 +29,4 @@ private:
 };
 
 #endif //QUEUE_QUEUE_HPP
+

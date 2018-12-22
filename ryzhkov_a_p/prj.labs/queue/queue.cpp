@@ -21,7 +21,7 @@ bool Queue::isEmpty()
 
 bool Queue::isFull()
 {
-    return (end_ + 1) % size_ == start_;
+    return (end_+1) % size_ == start_;
 }
 
 int Queue::top()
@@ -41,7 +41,7 @@ int Queue::pop()
     return result;
 }
 
-void Queue::enqueue(int value)
+void Queue::push(int value)
 {
     if (isFull())
     {

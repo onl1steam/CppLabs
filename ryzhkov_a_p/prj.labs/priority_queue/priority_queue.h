@@ -12,27 +12,19 @@ public:
     
     explicit PriorityQueue(int size);
     
-    PriorityQueue(const PriorityQueue &obj);
+    PriorityQueue(const PriorityQueue &copy);
     
     ~PriorityQueue();
     
     bool isEmpty();
-    
-    bool isEmpty() const;
-    
     bool isFull();
     
-    bool isFull() const;
-    
     int top();
-    
-    int top() const;
-    
     int pop();
     
     void push(int value, int priority);
     
-    PriorityQueue &operator=(const PriorityQueue &rhs);
+    PriorityQueue &operator=(const PriorityQueue &queue);
     
 private:
     int *data_;
