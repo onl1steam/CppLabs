@@ -1,9 +1,0 @@
-cmake_minimum_required(VERSION 3.6)
-
-add_subdirectory(complex_tests)
-add_subdirectory(rational_tests)
-add_subdirectory(matrix_tests)
-add_subdirectory(queue_tests)
-add_subdirectory(stack_tests)
-add_subdirectory(vector_tests)
-add_subdirectory(vectorT_tests)

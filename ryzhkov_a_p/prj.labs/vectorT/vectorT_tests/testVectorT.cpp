@@ -1,5 +1,5 @@
 #include <iostream>
-#include "../../prj.labs/vectorT/vectorT.h"
+#include "../vectorT.h"
 using namespace std;
 
 int main() {

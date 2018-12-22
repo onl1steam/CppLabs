@@ -6,4 +6,3 @@ project(ryzhkov_a_p)
 
 add_subdirectory(prj.labs)
 add_subdirectory(prj.cw)
-add_subdirectory(prj.tests)

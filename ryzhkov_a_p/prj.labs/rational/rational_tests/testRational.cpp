@@ -1,6 +1,6 @@
 #include <iostream>
 #include <sstream>
-#include "../../prj.labs/rational/rational.hpp"
+#include "../rational.hpp"
 
 using namespace std;
 

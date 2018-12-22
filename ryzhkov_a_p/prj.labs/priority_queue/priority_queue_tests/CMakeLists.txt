@@ -1,0 +1,3 @@
+add_executable(priority_queue_tests testPriorityQueue.cpp)
+target_link_libraries(priority_queue_tests priority_queue)
+set_property(TARGET priority_queue_tests PROPERTY CXX_STANDARD 14)

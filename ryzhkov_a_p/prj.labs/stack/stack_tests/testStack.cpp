@@ -1,5 +1,5 @@
 #include <iostream>
-#include "../../prj.labs/stack/stack.hpp"
+#include "../stack.hpp"
 using namespace std;
 
 int main() {
