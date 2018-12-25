@@ -5,18 +5,13 @@ using namespace std;
 
 int main() {
     // Конструктор
-    PriorityQueue queue1(10);
+    PriorityQueue queue1(5);
     // Заполненим и попробуем вставить лишний элемент
     queue1.push(1, 3);
     queue1.push(2, 5);
     queue1.push(3, 10);
     queue1.push(4, 1);
-    queue1.push(5, 3);
-    queue1.push(6, 7);
-    queue1.push(7, 4);
-    queue1.push(8, 8);
-    queue1.push(9, 0);
-    queue1.push(10, 12);
+    queue1.push(100, 0);
     try {
         queue1.push(11, 0);
     } catch (out_of_range){

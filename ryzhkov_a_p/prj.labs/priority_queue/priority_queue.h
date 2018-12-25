@@ -2,37 +2,37 @@
 // Created by Рыжков Артем on 22/12/2018.
 //
 
-#ifndef PRIORITYQUEUE_PRIORITYQUEUE_H
-#define PRIORITYQUEUE_PRIORITYQUEUE_H
+#ifndef PQUEUE_PRIORITYQUEUE_H
+#define PQUEUE_PRIORITYQUEUE_H
 
 
 class PriorityQueue {
 public:
     PriorityQueue() = default;
-    
-    explicit PriorityQueue(int size);
-    
-    PriorityQueue(const PriorityQueue &copy);
-    
+    PriorityQueue(const int size);
+    PriorityQueue(PriorityQueue &copy);
     ~PriorityQueue();
+    
+    void push(const int data, const int priority);
+    int pop();
+    int top();
     
     bool isEmpty();
     bool isFull();
     
-    int top();
-    int pop();
-    
-    void push(int value, int priority);
-    
-    PriorityQueue &operator=(const PriorityQueue &queue);
+    PriorityQueue& operator=(const PriorityQueue &copy);
     
 private:
-    int *data_;
-    int *priorities_;
-    int size_;
-    int end_;
+    struct  QueueElement{
+        int priority_;
+        int data_;
+        QueueElement() = default;
+        QueueElement(const int data, const int priority);
+    };
+    QueueElement *array_;
+    int end_{0};
+    int size_{0};
 };
 
 
-#endif //PRIORITYQUEUE_PRIORITYQUEUE_H
-
+#endif //PQUEUE_PRIORITYQUEUE_H
